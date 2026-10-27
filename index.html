@@ -1,0 +1,19 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>LUMEN: Light Puzzle</title>
+<link rel="stylesheet" href="style.css"></head><body>
+<header><b>LUMEN</b><span id="hud"></span></header>
+<main>
+<canvas id="c" width="480" height="480" tabindex="0" role="application" aria-label="Lumen puzzle board. Arrow keys move the cursor, Space flips a mirror, U undoes."></canvas>
+<div id="ov" role="dialog" aria-labelledby="ot"></div>
+</main>
+<div id="msg" role="status" aria-live="polite"></div>
+<div id="bar">
+<button id="ub">Undo (U)</button><button id="rb">Restart (R)</button><button id="pb">Pause (P)</button><button id="lb">Levels</button>
+<label><input type="checkbox" id="mu"> Mute</label>
+<label><input type="checkbox" id="rm"> Reduced motion</label>
+</div>
+<script src="trace.js"></script>
+<script src="levels.js"></script>
+<script src="game.js"></script>
+</body></html>

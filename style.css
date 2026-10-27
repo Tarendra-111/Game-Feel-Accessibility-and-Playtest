@@ -1,0 +1,28 @@
+/* TASK 2: layout, theme tokens (light + dark), flat placeholder look */
+:root{--bg:#eef0fa;--card:#fff;--tile:#e3e7f7;--fg:#1a1d33;--beam:#0a8fb0;--lit:#e09a00;--acc:#5b45e0;--bad:#d63a5e;--mir:#6a4fd6;--wall:#9aa3cf;color-scheme:light dark;box-sizing:border-box}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1020;--card:#151a33;--tile:#1c2244;--fg:#e8ebff;--beam:#5ef0ff;--lit:#ffd45e;--acc:#8b7bff;--bad:#ff6b8a;--mir:#c9b8ff;--wall:#3a4170}}
+:root[data-theme="dark"]{--bg:#0d1020;--card:#151a33;--tile:#1c2244;--fg:#e8ebff;--beam:#5ef0ff;--lit:#ffd45e;--acc:#8b7bff;--bad:#ff6b8a;--mir:#c9b8ff;--wall:#3a4170}
+html{min-height:100%;background:var(--bg)}
+body{margin:0;color:var(--fg);font:16px/1.4 system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;gap:10px;padding:12px}
+header,#bar,#msg{width:100%;max-width:520px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+header b{font-size:1.5rem;letter-spacing:.35em;color:var(--beam)}
+#hud{font-size:.9rem}
+main{width:100%;max-width:520px;position:relative}
+canvas{width:100%;height:auto;display:block;border-radius:16px;background:var(--card)}
+button{font:inherit;padding:8px 14px;border-radius:10px;border:2px solid var(--acc);background:var(--card);color:var(--fg);cursor:pointer;min-height:44px}
+#msg{min-height:1.4em;font-size:.9rem}
+/* TASK 3: overlay screens, level grid, disabled (locked) buttons */
+#ov{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;text-align:center;background:color-mix(in srgb,var(--bg) 90%,transparent);border-radius:16px;padding:18px}
+#ov[hidden]{display:none}
+h1{margin:0;font-size:2rem;letter-spacing:.2em;color:var(--beam)}
+p{margin:0;max-width:34ch}
+#lv{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;width:100%}
+#lv button{padding:6px 0;line-height:1.25}
+button.p{background:var(--acc);color:var(--card);font-weight:600}
+button:disabled{opacity:.45;cursor:not-allowed}
+/* TASK 4: visible focus, glow styling, touch behaviour, reduced motion */
+canvas{box-shadow:0 0 0 2px var(--tile),0 12px 40px rgba(0,0,0,.25);touch-action:manipulation}
+canvas:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+header b{text-shadow:0 0 14px var(--beam)}
+#ov{backdrop-filter:blur(4px)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
